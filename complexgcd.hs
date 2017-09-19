@@ -1,7 +1,10 @@
+-- Done for hackerank ad hoc challanges common divisor
+
+-- "First line of input contains an integer, T, which represent the number of test cases.
+--Then follows T lines. Each line contains two space separated integers, M L, representing the points earned by Mario and Luigi
+--, respectively" .
 
 import Control.Monad (replicateM)
-
-
 
 getLines :: Int -> IO [String]
 getLines n = do
@@ -15,7 +18,7 @@ reading [] = []
 reading (x:xs) = readNumbers x ++ reading xs
 
 
---print number of common divisors in coorect arrangment
+--print number of common divisors in correct arrangment
 printA :: [Int] -> IO()
 printA x = do
        if null x
@@ -28,7 +31,7 @@ printA x = do
 help :: Integral a => a -> a
 help n  =  fromIntegral $ floor $ sqrt (fromIntegral n)
 
-
+-- determine if a guven integer is square
 is_square n = sq * sq == n
     where sq = floor $ sqrt $ (fromIntegral n::Double)
 
@@ -47,7 +50,7 @@ gcdin x y
     | (x < y ) = gcdin x (y-x)
     | (x > y ) = gcdin (x-y) y
 
---read user input
+--read user input and print result
 main = do
    d <- getLine
    j <- getLines ( read d :: Int)
